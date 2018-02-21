@@ -1,0 +1,73 @@
+##
+## >>>>>>>>>>>>>> PART 1
+##
+#
+## The first :-rule (hello.o) is pretty redundant.
+## So we'll get rid of the duplication.
+## For that we'll make use of tup's %-flags.
+## The %f flag can be used to represent the inputs,
+## The %o flag can be used to represent the outputs.
+## Let's change each of the rules to use these new flags:
+#
+#: hello.c |> gcc -Wall -c %f -o %o |> hello.o
+#: square.c |> gcc -Wall -c %f -o %o |> square.o
+#: hello.o square.o |> gcc %f -o %o |> hello
+#
+#
+## A cool command to detect if any refactoring changes
+## to the Tupfile broke something is the 'tup refactor' command
+## If the commands expand to the same string, you will only see
+## the Tupfile being re-parsed, followed by "No files to delete" message:
+##
+## $ tup refactor
+## [ tup ] Scanning filesystem...0.007s
+## [ tup ] No tup.config changes.
+## [ tup ] Parsing Tupfiles...
+## [    1/1    ] .
+## [ tup ] No files to delete.
+
+
+
+
+##
+## >>>>>>>>>>>>>> PART 2
+##
+## Even considernig the improvements on part 1 there are still more redundancy to get rid of...
+##
+## Since we want the output file name to be the same the input file name we can use a special %-flags
+## %B (basename, no extension) will be replaced with the input filename, minus any directory and extension information.
+## Let's use it in the output section now:
+##
+#: hello.c |> gcc -Wall -c %f -o %o |> %B.o
+#: square.c |> gcc -Wall -c %f -o %o |> %B.o
+#: hello.o square.o |> gcc %f -o %o |> hello
+
+
+##
+## >>>>>>>>>>>>>> PART 3
+##
+## Further declutter:
+## Notice how the first two rules are idencial except for the left-hand side of the rule.
+##
+#: foreach hello.c square.c |> gcc -Wall -c %f -o %o |> %B.o
+#: hello.o square.o |> gcc %f -o %o |> hello
+#
+## now for each file on the right side the rule will be run.
+
+##
+## >>>>>>>>>>>>>> PART 4
+##
+# Yep, you guessed it... further declutter:
+: foreach *.c |> gcc -Wall -c %f -o %o |> %B.o
+: *.o |> gcc %f -o %o |> hello
+
+# Yep, if we started wtih that it would probably be hard to understand.
+# It looks like tup makes a graph of commands and connect inputs and outputs.
+# Try running:
+# tup graph . | dot -Tpng > ~/hello.png
+# From the tup docs:
+# When tup upd gets to the final stage of its processing and actually goes to execute commands, 
+# it will start with the files you changed (like hello.c) and follow the arrows upward until 
+# there are no more arrows to follow.
+# Try starting at each of the three base files and see which commands will be executed. 
+# It also works for any combination of inputs. In this way, you can think of the tup database as a collection of 2^n shell scripts, where n is the number of input files (since each file can be either "modified" or "unmodified", you get an exponential number of possible fileset changes). Depending on which files you modified, tup will pick out the smallest shell script that updates everything quickly and correctly. Of course, the shell script is generated on the fly using the graph - storing an exponential number of shell scripts would be crazy.

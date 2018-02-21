@@ -1,0 +1,15 @@
+: hello.c |> gcc -Wall hello.c -o hello |> hello
+
+# this is the simplest tup file we can write.
+# Let's dissect this...
+# it will be converted in: gcc hello.c -o hello
+
+# The line above is known as a ':-rule' since it begins with a ':' 
+# If you note it we have something in this structure:
+# some_text |> some more text |> other_text
+# the test between |>  simbols is the actual gcc command.
+# The file listed on the left side of |> (hello.c) is the input
+# The file listed on the right side of |> is the output (hello)
+# (we'll get in details later)
+#
+# to trigger the build you must type either 'tup' or 'tup udp' in the command line

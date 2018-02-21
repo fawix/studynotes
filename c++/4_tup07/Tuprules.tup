@@ -1,0 +1,7 @@
+CFLAGS += -Wall
+CFLAGS += -O2
+
+!cc = |> gcc $(CFLAGS) -c %f -o %o |> %B.o
+!ar = |> ar crs %o %f |>
+
+# Notice how the !cc macro specifies the output in the macro, since it is the same for all C files. However, the library can be named anything, so we specify the output in the actual :-rule that uses the !ar macro rather than in the macro definition itself.

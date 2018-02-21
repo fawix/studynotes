@@ -1,0 +1,7 @@
+[package]
+name = "digest_01"
+version = "0.1.0"
+authors = ["Fawix <fawixfa@gmail.com>"]
+
+[dependencies]
+hyper_auth = { path="../hyper_auth" }

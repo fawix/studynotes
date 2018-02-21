@@ -1,0 +1,8 @@
+[package]
+name = "futures_03"
+version = "0.1.0"
+authors = ["Fawix <fawixfa@gmail.com>"]
+
+[dependencies]
+rand = "*"
+futures = "*"

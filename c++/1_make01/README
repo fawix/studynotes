@@ -1,0 +1,24 @@
+
+Fist build with MAKE....
+
+Starting files for this folder are 
+
+sqroot.cpp (our simple c++ program)
+Makefile (our simple Make File).
+and This README. Can erase all the other files.
+
+
+Normally we could build this code as such:
+
+	gcc sqroot.cpp -lstdc++ -o sqroot_n1 -lm 
+	g++ sqroot.cpp -o sqroot_n
+
+However since we wrote the make file all you need to do is:
+
+make 		<--- this will build the source code
+/sqroot_n 9	<--- this will run the program 
+
+
+Note that doing it this way keeps the project very clean,
+however as the project grows managing the complexity of Makefile
+can be rather challenging. 

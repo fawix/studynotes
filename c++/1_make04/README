@@ -1,0 +1,62 @@
+This example was largely adapted from:
+https://stackoverflow.com/questions/2481269/how-to-make-a-simple-c-makefile#2481326
+
+We will now clean up most of our Makefile so we don't need to modify it as much.
+Still using recursive approach 1_make_04 will check out some of the non recursive options for make
+
+
+The initial files in this directory are:
+
+animals  talk.cc Makefile README
+
+./animals:
+animal.cc  animal.hh  cat  dog  mouse
+
+./animals/cat:
+cat.cc  cat.hh
+
+./animals/dog:
+chihuahua  dog.cc  dog.hh
+
+./animals/dog/chihuahua:
+chihuahua.cc  chihuahua.hh
+
+./animals/mouse:
+mouse.cc  mouse.hh
+
+
+
+We will strive to get a proper working directory since this project has multiple modules we will try the following:
+
+
+project_name/
+├── src/
+│   ├── module_1
+│   │   ├── *.css
+│   │   ├── *h
+│   │   ├── General Souce Files
+│   │   └── sub_module_1
+│   │       ├── *.css
+│   │       └── *h
+│   └── module_2
+│       ├── *.css
+│       ├── *h
+│       └── General Souce Files
+├── build/
+│   ├── module_1
+│   │   ├── sub_module_1
+│   │   │   └── Resulting build files 
+│   │   └── Resulting build files 
+│   └── module_2
+│       └── Resulting build files 
+├── include/
+│   └── project plublic headers
+│       └── Resulting build files 
+├── libs/
+│   ├──  
+│   └── project libraries
+└── Makefile
+
+
+Also, check out the ato dependancy generation we will be using this time
+http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/

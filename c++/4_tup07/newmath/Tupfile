@@ -1,0 +1,11 @@
+#  foreach *.c |> gcc -Wall -O -c %f -o %o |> %B.o
+# The above line can be refactored as such
+
+#CFLAGS += -Wall
+#CFLAGS += -O
+#
+#The above can be further refactored by using the include / include_rules directives
+include_rules
+
+: foreach *.c |> !cc |> 
+: *.o |> !ar |> libnewmath.a

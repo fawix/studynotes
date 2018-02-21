@@ -1,0 +1,10 @@
+// the configured options and settings from CMakeLists.txt file
+#define Sqroot_VERSION_MAJOR @sqroot_VERSION_MAJOR@
+#define Sqroot_VERSION_MINOR @sqroot_VERSION_MINOR@
+
+// does the platform provide exp and log functions?
+#cmakedefine HAVE_LOG
+#cmakedefine HAVE_EXP
+
+//Go check our mysqrt.cpp file
+

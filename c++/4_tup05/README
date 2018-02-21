@@ -1,0 +1,22 @@
+In this example we see how tup handles dependencies
+
+test.sh
+header.txt
+Tupfile
+
+
+chmod +x test.sh
+tup init <--- this command in the top of our source tree
+	      this command will create a .tup directory 
+	      which is used to to store dependencies and 
+	      manage the build system
+
+tup upd <--- this command will run the build using the Tupfile 
+
+
+
+Whenever the test.sh script changes tup upd will update the output.txt file we are creating in the 
+Tupfile. Feel free to play around and observe how no changes will not trigger anything while changing 
+the file will trigger a new output.txt
+
+We can also add a header file which will behave similarly than the test.sh file (only new output if changes)

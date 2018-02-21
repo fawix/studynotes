@@ -1,0 +1,22 @@
+Now we will add an external library
+So I'll make a custom implementation of sqroot
+so we can see how that would look like in cmake
+
+Starting files for this folder are 
+
+sqroot.cpp
+CMakeLists.txt
+SqrootConfig.h.in
+libs/CMakeLists.txt
+libs/mysqrt.cpp
+libs/mysqrt.h
+README 
+
+Can erase all the other files.
+To build and run the program do the following
+
+cmake .  	<--- this will generate make files
+make 		<--- this will build the source code
+./sqroot_n 9 	<--- this will run the program 
+
+

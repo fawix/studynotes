@@ -1,0 +1,27 @@
+The original files for this folder are 
+
+include/  Makefile  obj/  README  src/
+
+./include:
+hellomake.h
+
+./obj:
+
+./src:
+hello.cpp  hellofunc.cpp
+
+all other files can be safely removed.
+Notice that in order to build the project all you have to do is:
+
+make
+
+
+This builds on the second example to create a more standardized make file
+That is still simple enough to be easily maintained for medium to small projects in a development platform.
+This is not good enough for cross development and potentially every new platform to be supported
+would either require tweaking to the Makefile or a new makefile.
+
+For larger projects check the more advanced 1_make04
+
+Still make is very clean if you don't need a lot of cross compiling and for small projects.
+

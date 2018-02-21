@@ -1,0 +1,33 @@
+The original files for this folder are 
+
+hellomake.cpp
+hellofunc.cpp
+hellomake.h
+README
+Makefile
+
+all other files can be safely removed.
+Notice that in order to build the project all you have to do is:
+
+make
+
+
+Note how this increases in complexity compared to our first example,
+now imagine a enterprise level project with several files. Quite the nighmare to manage.
+
+Still make is very clean if you don't need a lot of cross compiling and for small projects.
+
+Note that for this particullar example we would normally have to 
+figure out which file change and run a different gcc or g++ command every time...
+If we didn't want to recompile the entire project.
+
+
+One of the ways we can compile this project is as follows:
+
+g++ hello.cpp hellofunc.cpp -o hello
+
+
+Since this isn't a complex project we will only have a single binary out.
+
+
+

@@ -1,0 +1,11 @@
+# Note that we can't simply list triangle.h as another input here, because the foreach keyword will try to iterate over it and generate a rule to compile the header file directly. Instead, we want to make use of the order-only inputs section, which is separated from the rest of the inputs by a single '|' (pipe) character. The difference between regular inputs and order-only inputs is that regular inputs are used in foreach and flags like %f, while order-only inputs are not. All inputs also add dependency links from the file pointing to the commands.
+
+include_rules
+#CFLAGS += -Wall
+#CFLAGS += -O
+#Refactoring to include_rules
+CFLAGS += -Inewmath
+
+
+: foreach *.c |> !cc |> 
+: *.o newmath/libnewmath.a |> gcc %f -o %o |> hello

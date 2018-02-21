@@ -1,0 +1,101 @@
+Build Systems for C/C++
+
+Make
+CMake
+Autotools
+
+
+Make 
+
+Is a tool that controls the generation of executables and other non-source files of a program.
+to configure and instruct make on how to build the program we use a "makefile", which lists each of the 
+non-source files and how to compute it from other files.
+
+When we write a program we can also write a make file for it, to simplify the task of building and installing
+the program. Make can figure out automatically whichj files it has to updated based on which files changed.
+
+It also determines the proper order of upgdating the files, taking into account dependencies.
+Which means with make we don't need to recompile the whole thing.
+
+Make can also control installing or uninstalling a package, generate tags tables and etc.
+
+Building with Make:
+
+Just type: "make" 
+This will find the make file in the current folder and use it to build the project
+
+
+CMake 
+
+Stands for Cross-platform Make.
+CMake recognizes which compilers to use for a given kind of source. 
+It can invoke the correct sequence of commands for each type of target.
+Therefore tehre is no explicit specification of commands like $(CC)
+
+Mmost of the contents for cmake is taken from:
+https://cmake.org/cmake-tutorial/
+
+CMake is a powerful cross platform build environment.
+
+
+Building with CMake:
+
+Involves 2 steps: 
+1. Setup build environment by typing: "cmake <source_dir>"
+   This will create a make file or equivalent (depending on the system).
+2. Perform the actual build in the selected system.
+
+CMake can support multiple generators like Xcode, Eclipse, Visual Studio, etc.
+It doesn't rely on "Make" to build the project
+
+
+
+Autotools
+
+is a GNU Build System and consists of multiple utilities working together 
+(e.g.: Autoconf, Automake, Libtool, ...)
+
+Autoconf: responsible for a reliable discovery of build system.
+generates a configure script based on the components of "configure.ac" file.
+The configure script scans the build environment and generates a config status script, 
+which converts the inputs into output files (Makefile) which are appropriated for the build environment.
+Finally make can be run to use the generated makefile and build the source code.
+
+Automake: helps create the protable Makefile referenced in the paragraph above.
+
+Libtool: help manage the creation of static and dynamic libraries on various Unix-like operating systems.
+Libtools accomplishes this by abstractign the library creation process, hiding differences between various systems.
+
+Autotools were created to overcome some of the shortcomings of Make.
+
+
+
+This link has very interesting information on the systems above:
+https://stackoverflow.com/questions/4071880/what-are-the-differences-between-autotools-cmake-and-scons
+
+
+
+Tup
+
+We will also explore Tup build system
+http://gittup.org/tup/
+
+Their site defines tup as a :
+"Tup is a file-based build system for Linux, OSX, and Windows."
+
+Which in my view is already an advantage over the other 3 above... further more thi is a newer implementation (2008-2016)
+https://github.com/gittup/tup
+
+
+Tup further defines it behavior as follows:
+"It [tup] inputs a list of file changes and a directed acyclic graph (DAG), then processes the DAG to execute the appropriate commands required to update dependent files."
+
+The strange thing about tup is that it uses lua + c as programming languages.
+
+
+
+Scons 
+
+TODO .. not very enthusiastic about this one since it uses python ............
+It's probably pretty slow.
+

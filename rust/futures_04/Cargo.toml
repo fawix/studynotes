@@ -1,0 +1,9 @@
+[package]
+name = "futures_04"
+version = "0.1.0"
+authors = ["Fawix <fawixfa@gmail.com>"]
+
+[dependencies]
+rand = "*"
+futures = "*"
+futures-cpupool = "*"

@@ -1,0 +1,9 @@
+very interesting. 
+
+When building a library with "go build" 
+no file is created (?) ... more like it doesn't actually do anything???
+
+When we run "go install" it will create a pkg object and put it in the pkg folder of workspace directory.
+really... about now I'm wondering how well this stuff really works on real life. 
+
+

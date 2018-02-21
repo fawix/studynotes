@@ -1,0 +1,6 @@
+[package]
+name = "calcz"
+version = "0.1.0"
+authors = ["fawix"]
+
+[dependencies]

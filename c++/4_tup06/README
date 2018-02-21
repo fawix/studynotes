@@ -1,0 +1,18 @@
+In this example we see how tup handles generated headers.
+
+hello.c
+square.c
+square.h
+Tupfile
+gen_triangle.sh
+
+chmod +x test.sh
+tup init <--- this command in the top of our source tree
+	      this command will create a .tup directory 
+	      which is used to to store dependencies and 
+	      manage the build system
+
+tup upd <--- this command will run the build using the Tupfile 
+
+
+tup only re-compiles the minimum number of files necessary, even if inputs in the Tupfile are over-specified. Additionally, inputs in the Tupfile always guarantee the order that the commands are executed in, even if the commands do not actually read from the input files.

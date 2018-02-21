@@ -1,0 +1,10 @@
+[package]
+name = "chttp_01"
+version = "0.1.0"
+authors = ["Fawix <fawixfa@gmail.com>"]
+
+[dependencies]
+chttp = "0.1.2"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"

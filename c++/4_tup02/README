@@ -1,0 +1,19 @@
+
+Subsequently the initial files in this folder are:
+
+hello.c
+square.c
+square.h
+Tupfile
+
+
+In order to initialize tup we have to:
+
+tup init <--- this command in the top of our source tree
+	      this command will create a .tup directory 
+	      which is used to to store dependencies and 
+	      manage the build system
+
+tup udp <--- this command will run the build using the Tupfile 
+
+

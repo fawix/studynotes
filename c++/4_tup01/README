@@ -1,0 +1,41 @@
+We will now explore tup.
+It's an interesting build system although the license scheme is GPLv2
+
+First things first, we need to get tup in our system... do the following:
+
+git clone https://github.com/gittup/tup.git
+cd tup
+./bootstrap.sh
+sudo cp tup.1 /usr/share/man/man1
+
+Chances are that ./bootstrap.sh will ask you to install fuse if you don't already have it.
+Last step is totally optional but allows you to do something like 'man tup' to see the documentation.
+
+These under linux of course :) 
+
+for other systems go to their website and check out the instructions:
+http://gittup.org/tup/
+
+
+Next you need to add tup to your path, for example:
+
+export PATH=/path/to/tup/:$PATH
+
+
+Subsequently the initial files in this folder are:
+
+hello.c
+Tupfile
+
+
+In order to initialize tup we have to:
+
+tup init <--- this command in the top of our source tree
+	      this command will create a .tup directory 
+	      which is used to to store dependencies and 
+	      manage the build system
+
+tup udp <--- this command will run the build using the Tupfile 
+
+
+

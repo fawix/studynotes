@@ -1,0 +1,23 @@
+In this example we will add system instropection
+(e.g. add a check if feature is present before we can use it)
+
+
+Starting files for this folder are 
+
+sqroot.cpp
+CMakeLists.txt
+SqrootConfig.h.in
+libs/CMakeLists.txt
+libs/mysqrt.cpp
+libs/mysqrt.h
+README 
+
+Can erase all the other files.
+To build and run the program do the following
+
+cmake .  	<--- this will generate make files
+ctest		<--- this will run the tests in our cmake file
+make 		<--- this will build the source code
+./sqroot_n 9 	<--- this will run the program 
+
+

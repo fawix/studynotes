@@ -1,0 +1,19 @@
+
+Fist build with AUTOTOOLS....
+
+Starting files for this folder are:
+
+	sqroot.cpp (our simple c++ program)
+	configure.ac (our Autotools config file)
+	Makefile.am (our Makefile input for Automake).
+	and This README. 
+	
+Can erase all the other files.
+In order to use Autotools do the following:
+
+autoreconf -i 	<--- this will generate the configure file
+./configure     <--- this will generate the Makefile
+make 		<--- this will build the source code
+/sqroot_n 9	<--- this will run the program 
+
+https://devmanual.gentoo.org/general-concepts/autotools/

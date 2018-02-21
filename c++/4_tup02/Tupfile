@@ -1,0 +1,9 @@
+: hello.c |> gcc -Wall -c hello.c -o hello.o |> hello.o
+: square.c |> gcc -Wall -c square.c -o square.o |> square.o
+: hello.o square.o |> gcc hello.o square.o -o hello |> hello
+
+# here we are creating the linker files
+# and subsequently combining then into our executable
+# yes this is not scalable... we' ll see better ways later
+
+

@@ -1,0 +1,11 @@
+So we can build locally with:
+
+	go build
+
+or we can install it to our workspace bin directory with
+
+	go install
+
+we can also remove from our workspace bin directory with 
+
+	go clean 

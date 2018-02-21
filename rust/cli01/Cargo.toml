@@ -1,0 +1,7 @@
+[package]
+name = "cli01"
+version = "0.1.0"
+authors = ["fawix"]
+
+[dependencies]
+clap = "*"

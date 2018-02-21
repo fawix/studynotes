@@ -1,0 +1,8 @@
+[package]
+name = "cache_01"
+version = "0.1.0"
+authors = ["Fawix <fawixfa@gmail.com>"]
+
+[dependencies]
+bmemcached = "*"
+serde = "*"

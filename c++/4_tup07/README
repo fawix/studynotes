@@ -1,0 +1,29 @@
+In this example we see how tup handles multiple folders 
+
+hello.c
+square.c
+square.h
+Tupfile
+newmath/square.c
+newmath/square.h
+newmath/Tupfile
+
+tup init <--- this command in the top of our source tree
+	      this command will create a .tup directory 
+	      which is used to to store dependencies and 
+	      manage the build system
+
+tup upd <--- this command will run the build using the Tupfile 
+
+From the docs:
+
+The basic idea that tup uses is that each directory contains a Tupfile, and each Tupfile is independent. You do not need to have a top-level Tupfile call or otherwise include subdirectories -- just create a Tupfile in each directory.
+
+Still, figuring out what to put in each Tupfile may not be immediately obvious, especially if you don't want to repeat yourself in every Tupfile that needs to compile C files. A good approach is to start at a base level, and build your way up. You don't have to write all the Tupfiles at once and get it right on the first try! Just follow these steps:
+
+	1. Build: Create a Tupfile in a single directory, and get it to produce the output you want for that directory.
+	2. Refactor: Clean up the new Tupfile so that it looks nice, and maybe pull variables out into common files so that repetition is mostly avoided.
+	3. Repeat: Continue this process until your program is fully built.
+Once all the Tupfiles have been created, it is a good time to commit them to your version control and take a break!
+
+Note if we had another directory with some documents or something that doesn't require tup to build, we simply would not put a Tupfile there

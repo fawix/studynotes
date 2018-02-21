@@ -1,0 +1,25 @@
+: |> echo "generated text" > %o |> generated.txt
+# : generated.txt |> ./test.sh > %o |> output.txt
+
+# To give tup the information that generated.txt must be created first, we simply list it as an input to the test script.
+# To see what happens if you add an input to the Tupfile, but the input goes unused. 
+
+: |> echo "unused text" > %o |> unused.txt
+: generated.txt unused.txt |> ./test.sh > %o |> output.txt
+
+
+# From the docs:
+# tup graph . | dot -Tpng > ex_deps_2.png
+# Here we can see that not all of the input dependency arrows are the same. 
+# There are solid lines and dotted lines, as well as filled in arrows and empty arrows. 
+# The actual details of how tup handles these are beyond the scope of this example. 
+# The important thing to see here is that tup still keeps track of the fact that the 
+# shell script has a dependency on the unused.txt file, but because the file was never 
+# actually read from by the script, it cannot possibly have an effect on the output file 
+# (this fact is represented by the dotted line). Therefore, tup knows that if 
+# unused.txt changes, the script does not need to run again.
+
+# However, the presence of the dotted-line dependency means that if unused.txt is changed and 
+# at the same time test.sh is changed to read from that file, tup is guaranteed to execute them 
+# in the correct order. In this sense, inputs in Tupfiles are only for ordering, and dependencies 
+# determined automatically during program execution are used for re-executing commands. 

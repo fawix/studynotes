@@ -1,0 +1,26 @@
+In this example we will add some standard targets
+like the 'install' target to allow the application to 
+be installed in the /usr/bin folder
+
+We will also add some tests to our application
+
+
+Starting files for this folder are 
+
+sqroot.cpp
+CMakeLists.txt
+SqrootConfig.h.in
+libs/CMakeLists.txt
+libs/mysqrt.cpp
+libs/mysqrt.h
+README 
+
+Can erase all the other files.
+To build and run the program do the following
+
+cmake .  	<--- this will generate make files
+ctest		<--- this will run the tests in our cmake file
+make 		<--- this will build the source code
+./sqroot_n 9 	<--- this will run the program 
+
+
