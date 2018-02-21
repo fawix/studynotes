@@ -26,7 +26,7 @@ func main () {
 
 	v := Vertex{1,2}
 	// struct fields are accessed using a dot (as does normal structs in C++ (pointers use arrows to access the value)
-	v.X = 4 // I really dislike this thing with capital letter ... is like python with spaces just stupid!
+	v.X = 4 // I really dislike this thing with capital letter ... is like python with spaces just .....
 	fmt.Println(v.X,v.Y)
 
 	fmt.Println(v1, p, v2, v3)
