@@ -9,10 +9,7 @@ import (
 	Go does not have classes (!!) - err ??
 	However it's possible to define methods on types --
 	/rant
-	well that goes aganist the very definition of METHOD so they have smoething they call method ... let's see
-	btw... method definition:  A method (or member function) defines the behavior of an objects.
-	well... to have objects you need to have a CLASS; methods and functions are not the same thing.
-	-2 points for Go
+	well that goes aganist the very definition of METHOD ... 
 	rant/
 	A "method" is a function with a special "receiver" argument.
 	The receiver appears in its own argument list between the func keyword and the "method" name
@@ -56,7 +53,7 @@ func main () {
 	fmt.Println(Abs(v))
 
 	// "Methods" can be declared on non-struct types too
-	// see MyFlaot above
+	// see MyFloat above
 	f := MyFloat(-math.Sqrt2)
 	fmt.Println(f.Abs())
 
